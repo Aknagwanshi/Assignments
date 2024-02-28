@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Media Queries Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .box {
+            background-color: #f0f0f0;
+            border: 2px solid #333;
+            padding: 20px;
+            margin: 20px;
+        }
+        @media (max-width: 600px) {
+            .box {
+                padding: 10px;
+                margin: 10px;
+                background-color: orchid;
+            }
+        }
+        @media (min-width: 601px) and (max-width: 900px) {
+            .box {
+                font-size: 18px;
+                background-color: palegreen;
+            }
+        }
+        @media (min-width: 901px) {
+            .box {
+                font-size: 24px;
+                background-color: navajowhite;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSS Media Queries Example</h1>
+        <div class="box">
+            This box has different styles applied based on the screen width.
+        </div>
+    </div>
+</body>
+</html>
