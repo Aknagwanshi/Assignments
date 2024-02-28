@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Greeting</title>
+    <style>
+        #greeting {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <label for="nameInput">Enter your name: </label>
+    <input type="text" id="nameInput">
+    <button id="greetBtn">Greet Me!</button>
+    <div id="greeting"></div>
+
+    <script>
+        function greetUser() {
+            var name = document.getElementById('nameInput').value;
+            var greetingElement = document.getElementById('greeting');
+
+            // Check if the name is empty
+            if (name.trim() === '') {
+                greetingElement.textContent = 'Please enter your name.';
+            } else {
+                // Display the personalized greeting
+                greetingElement.textContent = 'Hello, ' + name + '! Have a great day!';
+            }
+        }
+
+        // Event listener for the Greet Me! button
+        document.getElementById('greetBtn').addEventListener('click', greetUser);
+    </script>
+</body>
+</html>
