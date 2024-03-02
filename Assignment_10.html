@@ -16,7 +16,6 @@
     <input type="text" id="nameInput">
     <button id="greetBtn">Greet Me!</button>
     <div id="greeting"></div>
-
     <script>
         function greetUser() {
             var name = document.getElementById('nameInput').value;
@@ -30,7 +29,6 @@
                 greetingElement.textContent = 'Hello, ' + name + '! Have a great day!';
             }
         }
-
         // Event listener for the Greet Me! button
         document.getElementById('greetBtn').addEventListener('click', greetUser);
     </script>
