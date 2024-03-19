@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Example with Fetch API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #content {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #updateButton {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #updateButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AJAX Example with Fetch API</h1>
+        <div id="content">
+            <!-- Content to be updated dynamically -->
+            Initial content
+        </div>
+
+        <!-- Button to trigger AJAX request -->
+        <button id="updateButton">Update Content</button>
+    </div>
+
+    <script>
+        document.getElementById("updateButton").addEventListener("click", function() {
+            fetch("https://jsonplaceholder.typicode.com/posts/1")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById("content").innerHTML = data.title;
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

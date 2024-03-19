@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        .slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.slider-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <img class="slider-img" src="image1.jpg" alt="Slide 1">
+        <img class="slider-img" src="image2.jpg" alt="Slide 2">
+        <img class="slider-img" src="image3.jpg" alt="Slide 3">
+        <img class="slider-img" src="image4.jpg" alt="Slide 4">
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+
+function changeSlide(n) {
+    showSlide(slideIndex += n);
+}
+
+function showSlide(n) {
+    let slides = document.getElementsByClassName("slider-img");
+    
+    if (n > slides.length) {
+        slideIndex = 1;
+    } 
+    
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    
+    slides[slideIndex - 1].style.display = "block";  
+}
+showSlide(slideIndex);
+
+    </script>
+</body>
+</html>
